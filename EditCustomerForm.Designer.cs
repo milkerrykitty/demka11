@@ -221,7 +221,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditCustomerForm";
-            this.Text = "EditCustomerForm";
+            this.Text = "Добавить клиента";
             this.ResumeLayout(false);
             this.PerformLayout();
 

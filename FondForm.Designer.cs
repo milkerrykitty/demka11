@@ -192,7 +192,7 @@
             this.Controls.Add(this.txtFloor);
             this.Controls.Add(this.label1);
             this.Name = "FondForm";
-            this.Text = "FondForm";
+            this.Text = "Номерной фонд";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

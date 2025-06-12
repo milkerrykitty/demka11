@@ -30,8 +30,8 @@ namespace template
                 {
                     connection.Open();
                     string query = @"SELECT password, activestatus, role, 
-                                   last_login, first_login, password_changed 
-                                   FROM users WHERE login = @login";
+                                    last_login, first_login, password_changed, userid
+                                    FROM users WHERE login = @login";
                     var cmd = new MySqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@login", txtLogin.Text);
 
@@ -49,6 +49,7 @@ namespace template
                         string userRole = reader.GetString("role");
                         DateTime? lastLogin = reader.IsDBNull(3) ? null : (DateTime?)reader.GetDateTime(3);
                         bool passwordChanged = reader.GetBoolean("password_changed");
+                        int userId = reader.GetInt32("userid");
 
                         if (isBlocked)
                         {
@@ -57,7 +58,7 @@ namespace template
                         }
 
                         // Проверка неактивности
-                        if (lastLogin.HasValue && 
+                        if (lastLogin.HasValue &&
                             (DateTime.Now - lastLogin.Value).TotalDays > InactiveDaysThreshold)
                         {
                             BlockUser(txtLogin.Text);
@@ -67,6 +68,9 @@ namespace template
 
                         if (txtPassword.Text == correctPassword)
                         {
+                            // Логируем успешный вход
+                            LogAction(userId, "Вход в систему", "System", 0);
+
                             // Обновляем время последнего входа
                             UpdateLastLogin(txtLogin.Text);
 
@@ -91,6 +95,8 @@ namespace template
                             if (loginAttempts >= MaxLoginAttempts)
                             {
                                 BlockUser(txtLogin.Text);
+                                // Логируем блокировку из-за неудачных попыток входа
+                                LogAction(userId, "Блокировка аккаунта (превышены попытки входа)", "User", userId);
                                 MessageBox.Show("Вы заблокированы. Обратитесь к администратору.");
                             }
                             else
@@ -104,6 +110,28 @@ namespace template
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
+            }
+        }
+
+        private void LogAction(int userId, string action, string objectType, int objectId)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(ConnectionString))
+                {
+                    connection.Open();
+                    string query = @"INSERT INTO action_log (user_id, action) 
+                                   VALUES (@userId, @action)";
+                    var cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    MySqlParameter mySqlParameter = cmd.Parameters.AddWithValue("@action", action);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Не прерываем работу приложения при ошибке логирования
+                Console.WriteLine($"Ошибка логирования: {ex.Message}");
             }
         }
 

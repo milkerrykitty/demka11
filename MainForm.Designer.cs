@@ -32,11 +32,15 @@
             this.btnManageUsers = new System.Windows.Forms.Button();
             this.btnChangeUser = new System.Windows.Forms.Button();
             this.btnFond = new System.Windows.Forms.Button();
+            this.btnAct = new System.Windows.Forms.Button();
+            this.btnShifts = new System.Windows.Forms.Button();
+            this.btnOrders = new System.Windows.Forms.Button();
+            this.btnOpenContract = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnViewInfo
             // 
-            this.btnViewInfo.Location = new System.Drawing.Point(310, 72);
+            this.btnViewInfo.Location = new System.Drawing.Point(310, 27);
             this.btnViewInfo.Name = "btnViewInfo";
             this.btnViewInfo.Size = new System.Drawing.Size(178, 75);
             this.btnViewInfo.TabIndex = 0;
@@ -46,7 +50,7 @@
             // 
             // btnManageUsers
             // 
-            this.btnManageUsers.Location = new System.Drawing.Point(310, 170);
+            this.btnManageUsers.Location = new System.Drawing.Point(310, 108);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(178, 45);
             this.btnManageUsers.TabIndex = 1;
@@ -66,7 +70,7 @@
             // 
             // btnFond
             // 
-            this.btnFond.Location = new System.Drawing.Point(310, 246);
+            this.btnFond.Location = new System.Drawing.Point(310, 159);
             this.btnFond.Name = "btnFond";
             this.btnFond.Size = new System.Drawing.Size(178, 46);
             this.btnFond.TabIndex = 3;
@@ -74,11 +78,55 @@
             this.btnFond.UseVisualStyleBackColor = true;
             this.btnFond.Click += new System.EventHandler(this.btnFond_Click);
             // 
+            // btnAct
+            // 
+            this.btnAct.Location = new System.Drawing.Point(310, 211);
+            this.btnAct.Name = "btnAct";
+            this.btnAct.Size = new System.Drawing.Size(178, 46);
+            this.btnAct.TabIndex = 4;
+            this.btnAct.Text = "Журнал активности";
+            this.btnAct.UseVisualStyleBackColor = true;
+            this.btnAct.Click += new System.EventHandler(this.btnAct_Click);
+            // 
+            // btnShifts
+            // 
+            this.btnShifts.Location = new System.Drawing.Point(310, 263);
+            this.btnShifts.Name = "btnShifts";
+            this.btnShifts.Size = new System.Drawing.Size(178, 46);
+            this.btnShifts.TabIndex = 5;
+            this.btnShifts.Text = "Смены";
+            this.btnShifts.UseVisualStyleBackColor = true;
+            this.btnShifts.Click += new System.EventHandler(this.btnShifts_Click);
+            // 
+            // btnOrders
+            // 
+            this.btnOrders.Location = new System.Drawing.Point(494, 163);
+            this.btnOrders.Name = "btnOrders";
+            this.btnOrders.Size = new System.Drawing.Size(72, 146);
+            this.btnOrders.TabIndex = 6;
+            this.btnOrders.Text = "Операции";
+            this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
+            // 
+            // btnOpenContract
+            // 
+            this.btnOpenContract.Location = new System.Drawing.Point(232, 161);
+            this.btnOpenContract.Name = "btnOpenContract";
+            this.btnOpenContract.Size = new System.Drawing.Size(72, 146);
+            this.btnOpenContract.TabIndex = 7;
+            this.btnOpenContract.Text = "Чек";
+            this.btnOpenContract.UseVisualStyleBackColor = true;
+            this.btnOpenContract.Click += new System.EventHandler(this.btnOpenContract_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOpenContract);
+            this.Controls.Add(this.btnOrders);
+            this.Controls.Add(this.btnShifts);
+            this.Controls.Add(this.btnAct);
             this.Controls.Add(this.btnFond);
             this.Controls.Add(this.btnChangeUser);
             this.Controls.Add(this.btnManageUsers);
@@ -96,5 +144,9 @@
         private System.Windows.Forms.Button btnManageUsers;
         private System.Windows.Forms.Button btnChangeUser;
         private System.Windows.Forms.Button btnFond;
+        private System.Windows.Forms.Button btnAct;
+        private System.Windows.Forms.Button btnShifts;
+        private System.Windows.Forms.Button btnOrders;
+        private System.Windows.Forms.Button btnOpenContract;
     }
 }

@@ -108,7 +108,7 @@
             this.Controls.Add(this.txtCurrent);
             this.Controls.Add(this.btnChange);
             this.Name = "ChangePasswordForm";
-            this.Text = "Form1";
+            this.Text = "Смена пароля";
             this.ResumeLayout(false);
             this.PerformLayout();
 

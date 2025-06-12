@@ -37,6 +37,8 @@
             this.BtnReset = new System.Windows.Forms.Button();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@
             // 
             // dtpToDate
             // 
-            this.dtpToDate.Location = new System.Drawing.Point(526, 200);
+            this.dtpToDate.Location = new System.Drawing.Point(526, 217);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(200, 20);
             this.dtpToDate.TabIndex = 3;
@@ -121,11 +123,31 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Имя";
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("MV Boli", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(521, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 30);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "От даты";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("MV Boli", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(521, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 30);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "До";
+            // 
             // CustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.BtnReset);
@@ -136,7 +158,7 @@
             this.Controls.Add(this.chkFilterDate);
             this.Controls.Add(this.txtSearchName);
             this.Name = "CustomersForm";
-            this.Text = "CustomersForm";
+            this.Text = "Клиенты";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,5 +176,7 @@
         private System.Windows.Forms.Button BtnReset;
         private System.Windows.Forms.Button btnDeleteCustomer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

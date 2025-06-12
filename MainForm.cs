@@ -7,6 +7,7 @@ namespace template
 {
     public partial class MainForm : Form
     {
+        string ConnectionString = "server=localhost;database=zoo;uid=root;pwd=root;";
         private string userRole;
         public MainForm(string role)
         {
@@ -18,21 +19,19 @@ namespace template
                 btnManageUsers.Visible = true;
             }
         }
-        string ConnectionString = "server=localhost;database=zoo;uid=root;pwd=root;";
-        private string connectionString;
 
         private void btnViewInfo_Click(object sender, EventArgs e)
         {
-            string connString = "server=localhost;database=zoo;uid=root;pwd=root;";
-            InformationForm informationForm = new InformationForm(connString, null); 
-            informationForm.Show();
+            using (var informationForm = new InformationForm(ConnectionString, null))
+            {
+                informationForm.ShowDialog();
+            }
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             UserForm userForm = new UserForm(); 
             userForm.Show();
-
         }
 
         private void btnChangeUser_Click(object sender, EventArgs e)
@@ -44,20 +43,41 @@ namespace template
 
         private void btnFond_Click(object sender, EventArgs e)
         {
-            FondForm form = new FondForm("server=localhost;user=root;database=zoo;password=root;");
-            form.Show();
+            using (var form = new FondForm(ConnectionString))
+            {
+                form.ShowDialog();
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Закрыть окно?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            Application.Exit();
+        }
+
+        private void btnAct_Click(object sender, EventArgs e)
+        {
+            using (ActionLogForm form = new ActionLogForm(ConnectionString))
             {
-                e.Cancel = true; // Отменяем закрытие
+                form.ShowDialog();
             }
-            else
-            {
-                Environment.Exit(0);
-            }
+        }
+
+        private void btnShifts_Click(object sender, EventArgs e)
+        {
+            var shiftForm = new ShiftForm();
+            shiftForm.Show();
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            var orderForm = new OrderForm();
+            orderForm.Show();
+        }
+
+        private void btnOpenContract_Click(object sender, EventArgs e)
+        {
+            var contractForm = new ContractForm();
+            contractForm.Show();
         }
     }
 }

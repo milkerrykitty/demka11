@@ -36,6 +36,7 @@
             this.btnShifts = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
             this.btnOpenContract = new System.Windows.Forms.Button();
+            this.btnRep = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnViewInfo
@@ -118,11 +119,22 @@
             this.btnOpenContract.UseVisualStyleBackColor = true;
             this.btnOpenContract.Click += new System.EventHandler(this.btnOpenContract_Click);
             // 
+            // btnRep
+            // 
+            this.btnRep.Location = new System.Drawing.Point(494, 27);
+            this.btnRep.Name = "btnRep";
+            this.btnRep.Size = new System.Drawing.Size(72, 130);
+            this.btnRep.TabIndex = 8;
+            this.btnRep.Text = "Отчет";
+            this.btnRep.UseVisualStyleBackColor = true;
+            this.btnRep.Click += new System.EventHandler(this.btnRep_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRep);
             this.Controls.Add(this.btnOpenContract);
             this.Controls.Add(this.btnOrders);
             this.Controls.Add(this.btnShifts);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.Button btnShifts;
         private System.Windows.Forms.Button btnOrders;
         private System.Windows.Forms.Button btnOpenContract;
+        private System.Windows.Forms.Button btnRep;
     }
 }

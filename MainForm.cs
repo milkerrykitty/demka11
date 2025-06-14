@@ -79,5 +79,11 @@ namespace template
             var contractForm = new ContractForm();
             contractForm.Show();
         }
+
+        private void btnRep_Click(object sender, EventArgs e)
+        {
+            var reportForm = new ReportForm();
+            reportForm.Show();
+        }
     }
 }
